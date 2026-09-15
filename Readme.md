@@ -39,3 +39,12 @@ dbt run
 ```
 
 8. Verify the dbt project run results in the target database.
+
+9. Create seeds, load files into the seeds directory, and run them the files called
+`customers.csv` and `orders.csv` files.
+
+10. Execute the seeds to load the data into the database and verify the results.
+
+```bash
+dbt seed
+```

@@ -1,0 +1,21 @@
+order_id,customer_id,product_name,product_category,quantity,price
+101,1, Running Shoes, Footwear, 2, 120
+102,2, Bluetooth Speaker, Electronics, 1, 90
+103,3, Formal Shirt, Apparel, 3, 45
+104, 1, Running Shoes, Footwear, 1, 120
+105,4, Laptop Bag,Accessories,2, 75
+106,5, Wireless Mouse, Electronics, 1, 40
+107,6, Gaming Keyboard, Electronics, 1, 110
+108,7, Trail Backpack, Outdoor,2, 100
+109,8, Coffee Maker, Home Appliances, 1, 85
+110,9, Tennis Racket, Sports, 1, 150
+111,10, Sunglasses, Accessories, 2, 60
+112,3, Hiking Boots, Footwear, 1, 180
+113,5, Desk Lamp, Home Appliances, 1,35
+114,8, Running Shoes, Footwear, 2, 120
+115,6, Mechanical Pencil, Stationery, 5, 5
+116,9, Wireless Earbuds, Electronics, 1, 65
+117,2, T—Shirt, Apparel, 4 , 25
+118,7, Electric Kettle, Home Appliances, 1, 45
+119,10, Power Bank, Electronics, 1, 50
+120,4, Notebook, Stationery, 6, 3
