@@ -1,0 +1,18 @@
+# for postgres db and query views with adminer
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+volumes:
+  db_data:
