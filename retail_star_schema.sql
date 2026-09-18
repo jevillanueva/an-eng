@@ -64,3 +64,36 @@ JOIN dim_date d ON f.date_key = d.date_key
 JOIN dim_product p ON f.product_key = p.product_key
 JOIN dim_customer c ON f.customer_key = c.customer_key
 order by d.date_key;
+
+
+
+SELECT
+  c.region,
+  p.category,
+  SUM(f.total_amount) AS total_revenue,
+  ROUND(SUM(f.total_amount) / COUNT(DISTINCT f.order_id),2) AS avg_order_value
+FROM fact_orders f
+JOIN dim_customer c ON f.customer_key = c.customer_key
+JOIN dim_product p ON f.product_key = p.product_key
+GROUP BY c.region, p.category
+ORDER BY total_revenue DESC;
+
+
+select
+  d.year,
+  d.month,
+  SUM(f.total_amount) as total_revenue
+FROM
+  fact_orders f
+JOIN dim_date d ON f.date_key = d.date_key
+GROUP BY d.year, d.month
+ORDER BY d.year, d.month;
+
+SELECT SUM(total_revenue)
+FROM (
+  select
+    c.region, SUM(f.total_amount) AS total_revenue
+  FROM fact_orders f
+  JOIN dim_customer c ON f.customer_key = c.customer_key
+  GROUP BY c.region
+) AS subquery;
