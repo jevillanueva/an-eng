@@ -172,3 +172,34 @@ FROM mart.fct_orders f
 JOIN staging.stg_orders s
 ON f.order_id = s.order_id
 WHERE f.customer_key IS NULL OR f.product_key IS NULL;
+
+-- Total revenue and AOV (Average Order Value)
+
+SELECT
+    p.category,
+    SUM(f.total_amount) AS total_revenue
+FROM mart.fct_orders f
+JOIN mart.dim_product p ON f.product_key = p.product_key
+GROUP BY p.category
+ORDER BY total_revenue DESC;
+
+SELECT
+    c.region,
+    SUM(f.total_amount) AS total_revenue
+FROM mart.fct_orders f
+JOIN mart.dim_customer c ON f.customer_key = c.customer_key
+GROUP BY c.region
+ORDER BY total_revenue DESC;
+
+SELECT
+    ROUND(SUM(total_amount)/COUNT(order_id),2) AS avg_order_value
+FROM mart.fct_orders;
+
+SELECT
+    p.category,
+    SUM(f.total_amount) AS total_revenue,
+    ROUND(SUM(f.total_amount)/COUNT(f.order_id),2) AS avg_order_value
+FROM mart.fct_orders f
+JOIN mart.dim_product p ON f.product_key = p.product_key
+GROUP BY p.category
+ORDER BY total_revenue DESC;
