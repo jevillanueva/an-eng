@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: dim_customers
+    description: "Dimensional model for customers"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+  - name: dim_products
+    description: "Dimensional model for products"

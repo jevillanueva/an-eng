@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: demo_dag_sources
+    database: mydb
+    schema: demo_dag
+    tables:
+      - name: customers
+      - name: orders
