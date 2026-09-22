@@ -1,0 +1,11 @@
+version: 2
+model:
+  - name: fact_orders
+    description: "Incremental fact table built from orders_seed"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: total_amount
+        description: "Calculated as quantity * price"

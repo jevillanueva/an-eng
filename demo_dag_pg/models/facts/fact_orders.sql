@@ -16,5 +16,6 @@ SELECT
 FROM {{ source('demo_dag_sources', 'orders_seed') }}
 
 {% if is_incremental() %}
+    -- only insert new records if is incremental
     WHERE order_id > (SELECT MAX(order_id) FROM {{ this }})
 {% endif %}

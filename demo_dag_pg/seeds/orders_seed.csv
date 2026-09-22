@@ -1,0 +1,12 @@
+order_id,customer_id,product_name,product_category,quantity,price
+201,1,Running Shoes,Footwear,2,120
+202,2,Bluetooth Speaker,Electronics,1,90
+203,3,Formal Shirt,Apparel,3,45
+204,4,Laptop Bag,Accessories,2,75
+205,5,Desk Lamp,Home Appliances,1,35
+206,6,Tennis Racket,Sports,1,150
+207,7,Smartphone,Electronics,1,600
+208,8,Office Chair,Furniture,2,200
+209,9,Water Bottle,Sports,3,15
+210,10,Headphones,Electronics,1,120
+300,10,Iron Box,Home Appliances,1,50
