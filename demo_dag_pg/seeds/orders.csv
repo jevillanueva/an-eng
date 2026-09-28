@@ -19,3 +19,5 @@ order_id,customer_id,product_name,product_category,quantity,price
 118,7, Electric Kettle, Home Appliances, 1, 45
 119,10, Power Bank, Electronics, 1, 50
 120,4, Notebook, Stationery, 6, 3
+500,3,NullCustomer,ErrorRow,1,10
+501,3,InvalidCustomer,ErrorRow,1,12

@@ -5,13 +5,22 @@ models:
     description: "Cleaned customers staging model"
     columns:
       - name: customer_id
-        tests:
+        data_tests:
           - not_null
           - unique
+      - name: customer_name
+        data_tests:
+          - not_null
   - name: stg_orders
     description: "Cleaned orders staging model"
     columns:
       - name: order_id
-        tests:
+        data_tests:
           - not_null
           - unique
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
