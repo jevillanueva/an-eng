@@ -24,6 +24,12 @@ values
     ('2024-01-02', 1, 150.00),
     ('2024-01-03', 2, 200.00),
     ('2024-02-01', 3, 99.99);
+
+insert into public.demo_project_orders (order_date, customer_id, order_amount)
+values
+    ('2024-03-01', 2, 250.00),
+    ('2024-03-15', 3, 300.00),
+    ('2024-12-31', 4, 500.00);
 ```
 
 ### Resources:
