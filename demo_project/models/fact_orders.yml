@@ -1,0 +1,25 @@
+version: 2
+models:
+- name: fact_orders
+  description: "Fact table for orders"
+  columns:
+    - name: order_id
+      description: "Surrogate key for the order"
+      tests:
+        - not_null
+        - unique
+    - name: order_date
+      description: "Date when the order was placed"
+      tests:
+        - not_null
+    - name: customer_id
+      description: "Customer identifier"
+      tests:
+        - not_null
+        - relationships:
+            to: ref('dim_customers')
+            field: customer_id
+    - name: order_amount
+      description: "Total amount for the order"
+      tests:
+        - not_null

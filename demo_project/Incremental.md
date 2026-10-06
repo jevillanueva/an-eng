@@ -56,3 +56,12 @@ update public.raw_customers
 set customer_name = 'Charlie Brown', updated_at = now()
 where customer_id = 3;
 ```
+
+After tests insert more data into raw_customers
+
+```sql
+insert into public.raw_customers (customer_id, customer_name, city, updated_at)
+values
+    (4, 'David', 'Miami', now()),
+    (5, 'Eve', 'Seattle', now());
+```
