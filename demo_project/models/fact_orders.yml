@@ -2,6 +2,10 @@ version: 2
 models:
 - name: fact_orders
   description: "Fact table for orders"
+  meta:
+    owner: "Data Analytics Team"
+    owner_email: "data-analytics-team@example.com"
+    domain: "sales"
   columns:
     - name: order_id
       description: "Surrogate key for the order"

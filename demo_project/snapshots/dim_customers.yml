@@ -3,13 +3,16 @@ version: 2
 snapshots:
   - name: dim_customers
     description: "SCD Snapshot of customers from raw data"
+    meta:
+      owner: "CRM Team"
+      owner_email: "crm-team@example.com"
+      domain: "customers"
     columns:
       - name: dbt_scd_id
         description: "Unique identifier for each version of the customer row"
         tests:
           - not_null
           - unique
-
       - name: customer_id
         description: "Business key for the customer"
         tests:
@@ -22,3 +25,5 @@ snapshots:
         description: "City where the customer is located"
         tests:
           - not_null
+      - name: updated_at
+        description: "Timestamp used by the snapshot to track changes"
