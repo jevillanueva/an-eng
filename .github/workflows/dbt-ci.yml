@@ -28,7 +28,7 @@ jobs:
           dbt --version
           dbt debug || true
           dbt build
-        working-directory: .
+        working-directory: ./demo_project
 
       - name: Upload dbt artifacts (logs + target)
         if: always()
