@@ -7,6 +7,7 @@
 select
     order_id,
     order_date,
+    extract(year from order_date)::int as order_year,
     customer_id,
     order_amount,
     status

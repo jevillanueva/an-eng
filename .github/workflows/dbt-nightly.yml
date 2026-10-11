@@ -1,0 +1,40 @@
+name: dbt Nightly
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs every day at midnight
+  workflow_dispatch:
+
+jobs:
+  nightly-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dbt (Postgres adapter)
+        run: |
+          pip install dbt-postgres
+
+      - name: Run dbt build
+        run: |
+          dbt --version
+          dbt compile --profiles-dir .dbt
+
+      # Create a simple run_result.json (for artifacts / demo)
+      - name: Create run_result.json
+        run: |
+          echo '{"metadata": {"job": "nightly", "mode": "compile-time"}}' > target/run_result.json
+
+      # Upload the run_result.json as an artifact
+      - name: Upload dbt nightly artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-nightly-run-result
+          path: target
