@@ -2,7 +2,7 @@ name: dbt Nightly
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight
+    - cron: '0 0 7 10 *'  # Runs every year on October 7 at midnight
   workflow_dispatch:
 
 jobs:
