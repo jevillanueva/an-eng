@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: orders_enriched
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: order_amount
+        tests:
+          - not_null
+  - name: orders_final_report
+    columns:
+      - name: order_value_band
+        tests:
+          - not_null
