@@ -49,3 +49,27 @@ values
 
 select * from demo_three.raw_orders order by order_id;
 ```
+
+
+For Apply Reusable Cleaning Macros to stg_customers
+
+```sql
+drop table if exists demo_three.customers_raw cascade;
+
+create table demo_three.customers_raw (
+    customer_id int primary key,
+    customer_name text,
+    email text,
+    country text
+); 
+
+insert into demo_three.customers_raw (customer_id, customer_name, email, country)
+values
+    (1, '   Alice   ', 'Alice@example.Com', 'USA'),
+    (2, 'bob', 'bob@example.com', 'uk'),
+    (3, 'CHARLIE   ', 'charlie@example.org', 'India'),
+    (4, null, 'missing@example.com', 'USA'),
+    (5, 'Eve', null, 'France');
+
+select * from demo_three.customers_raw;
+```
