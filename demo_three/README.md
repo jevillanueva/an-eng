@@ -119,3 +119,19 @@ select *
 from demo_three.page_views
 where user_id = 1234;
 ```
+
+Adding index
+
+```sql
+create index idx_page_views_user_id
+on demo_three.page_views (user_id);
+```
+
+Analize query
+
+```sql
+explain analyze
+select *
+from demo_three.page_views
+where user_id = 1234;
+```
