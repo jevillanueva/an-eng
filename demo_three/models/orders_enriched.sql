@@ -7,6 +7,8 @@ select
     order_id,
     order_date,
     customer_id,
+    -- INTENTIONAL ERROR
+    -- order_amount_broken_column as order_amount,
     order_amount,
     status,
     case
