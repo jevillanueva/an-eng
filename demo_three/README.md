@@ -73,3 +73,49 @@ values
 
 select * from demo_three.customers_raw;
 ```
+
+Profiling and optimization
+
+```sql
+drop table if exists demo_three.page_views cascade;
+
+create table demo_three.page_views (
+    view_id serial primary key,
+    user_id int,
+    page_url text,
+    view_time timestamp
+);
+
+-- Insert 200K synthetic data
+insert into demo_three.page_views (user_id, page_url, view_time)
+select
+    (random() * 5000)::int,
+    'https://example.com/page/' || (random() * 100)::int,
+    now() - (random() * interval '30 days')
+from generate_series(1, 200000);
+```
+
+First view
+
+```sql
+select count(*)
+from demo_three.page_views; 
+```
+
+Explain query plan for specific user
+
+```sql
+explain
+select *
+from demo_three.page_views
+where user_id = 1234;
+```
+
+With analize
+
+```sql
+explain analyze
+select *
+from demo_three.page_views
+where user_id = 1234;
+```
