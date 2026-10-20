@@ -1,6 +1,7 @@
 {{
     config(
-        materialized='table'
+        materialized='incremental',
+        unique_key='month'
     )
 }}
 select
@@ -8,4 +9,7 @@ select
     sum(order_amount) as total_revenue
 from {{ref('stg_orders_basic')}}
 group by 1
-order by 1
+
+{% if is_incremental() %}
+having date_trunc('month', order_date) > (select max(month) from {{ this }})
+{% endif %}
