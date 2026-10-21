@@ -14,5 +14,9 @@ services:
     image: adminer
     ports:
       - "8080:8080"
+  metabase:
+    image: metabase/metabase
+    ports:
+      - "3000:3000"
 volumes:
   db_data:
