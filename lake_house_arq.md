@@ -480,3 +480,27 @@ flowchart LR
 **Infraestructura y seguridad:** el servicio puede desplegarse como contenedor en Kubernetes. Deben implementarse autenticación, autorización, TLS y controles de acceso a MinIO y MLflow según las políticas corporativas.
 
 **Consideración arquitectónica:** MinIO almacena los archivos de los modelos, mientras que MLflow administra sus versiones y metadatos. No es necesario almacenar los modelos como tablas Iceberg; ambos componentes pueden utilizar la infraestructura de almacenamiento de la plataforma con funciones diferenciadas.
+
+# Capas y herramientas para Machine Learning y MLOps
+
+| Etapa | Capa | Herramienta |
+|---|---|---|
+| Machine Learning | Lenguaje de desarrollo y análisis | Python |
+| Machine Learning | Entrenamiento de modelos tradicionales | scikit-learn |
+| Machine Learning | Modelos tabulares avanzados | XGBoost / LightGBM |
+| Machine Learning | Preparación y procesamiento de datasets | Apache Spark + Python |
+| Machine Learning | Entorno de desarrollo interactivo | JupyterHub |
+| Machine Learning | Registro de experimentos, métricas y versiones de modelos | MLflow Tracking + Model Registry |
+| Machine Learning | Almacenamiento de artefactos de modelos | MinIO |
+| Machine Learning | Cómputo acelerado para entrenamiento e inferencia intensiva | Servidor GPU / Kubernetes con GPU (opcional) |
+| MLOps | Orquestación de pipelines de entrenamiento y evaluación | Apache Airflow |
+| MLOps | Validación y evaluación de modelos | Python + scikit-learn |
+| MLOps | Versionamiento y despliegue de modelos | GitLab CI/CD + Kubernetes |
+| MLOps | Monitoreo de deriva de datos y desempeño de modelos | Evidently |
+| Inferencia / Consumo | Exposición de modelos mediante API REST | FastAPI |
+| Inferencia / Consumo | Ejecución de predicciones batch | Python / Apache Spark + Airflow |
+| Inferencia / Consumo | Almacenamiento de predicciones e históricos | MinIO + Apache Iceberg |
+| Inferencia / Consumo | Consulta y análisis de predicciones | Trino + Apache Superset |
+| Transversal | Métricas y monitoreo de infraestructura y servicios ML | Prometheus + Grafana |
+| Transversal | Seguridad y gestión de credenciales | Active Directory + HashiCorp Vault |
+| Transversal | Plataforma de ejecución de servicios ML | Kubernetes |
